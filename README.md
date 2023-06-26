@@ -7,6 +7,7 @@
 →フレームの前処理として、ノイズの除去とエッジの強調などを行う。
 
   ・ノイズの除去、denoised = cv2.fastNlMeansDenoising(gray, h=10)
+  
   ・エッジ強調、 edges = cv2.Canny(denoised, threshold1=30, threshold2=70)
 
 →特定のフレーム範囲の処理の実行にも対応させる
@@ -28,6 +29,7 @@
   ・試合中では現在のフレームと背景の平均値との差分を計算する。平均値を引くことで前傾領域を検出する
 
 また、以下のURLを参考にしながら背景差分法を活用しました。
+
 https://pystyle.info/opencv-background-substraction/
 
 →シーン抽出に関して
@@ -35,6 +37,7 @@ https://pystyle.info/opencv-background-substraction/
   ・ビルドアップ時の場合、（縦x、横yとします）ピッチをx軸に3分割し、自チームのフィールドプレイヤーのx座標代表値を算出しそれが35m以上70m未満、且つボールの状態が自チームの保持である条件を設定させ、条件を満たした場合、Pandusのデータフレームに格納する。
 
 また、以下のURLを参考にしながらシーン抽出を活用しました。
+
 https://note.com/keigo_ashiki/n/n5e85a0592a67
 
 以上の工程を基に、攻撃シーンや守備シーンなどにタグ付けを行い、データの整理や分析を効率的に行うことができました。
